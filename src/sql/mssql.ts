@@ -2,7 +2,7 @@ import mssql from "mssql";
 
 let dbconfig = {
     server:             'DESKTOP-K9GNF1O',
-    database:           'Active_Consolidated',
+    database:           'kskSecurity',
     user:               'sa',
     password:           '3108sham',
     port:               1433,

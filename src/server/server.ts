@@ -11,7 +11,7 @@ import MsSql from '../sql/mssql';
 
 // rutas --------------------------------------------------------------
 import usuarioRouter    from '../routes/usuario.routes' ;
-// import authRouter       from '../routes/auth.route' ;
+import loginRouter      from '../routes/login.routes' ;
 
 
 export default class Server{
@@ -59,7 +59,7 @@ export default class Server{
 
          // rutas de usuarios y login
          this.app.use('/v1/usuarios', usuarioRouter.router);
-        //  this.app.use('/api/login', authRouter.router);
+         this.app.use('/v1/login', loginRouter.router);
          
     };
 
