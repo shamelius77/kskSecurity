@@ -3,7 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
-import fileUpload  from 'express-fileupload';
+import expressfileUpload  from 'express-fileupload';
 import path from 'path';
 
 import MsSql from '../sql/mssql'; 
@@ -12,6 +12,7 @@ import MsSql from '../sql/mssql';
 // rutas --------------------------------------------------------------
 import usuarioRouter    from '../routes/usuario.routes' ;
 import loginRouter      from '../routes/login.routes' ;
+import uploadRouter      from '../routes/upload.routes' ;
 
 
 export default class Server{
@@ -45,7 +46,7 @@ export default class Server{
         this.app.use(morgan('dev'));
         this.app.use(cors( {origin:true, credentials:true}));
 
-        this.app.use(fileUpload());
+        this.app.use(expressfileUpload());
 
    }
 
@@ -60,6 +61,10 @@ export default class Server{
          // rutas de usuarios y login
          this.app.use('/v1/usuarios', usuarioRouter.router);
          this.app.use('/v1/login', loginRouter.router);
+         
+         // ruta de files upload
+         this.app.use('/v1/upload', uploadRouter.router);
+
          
     };
 
